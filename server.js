@@ -4,13 +4,21 @@ const nodemailer = require('nodemailer');
 const dotenv = require('dotenv');
 const { z } = require('zod');
 const cors = require('cors')
+const path = require('path')
 
 dotenv.config();
+
+
+__dirname = path.resolve()
 
 const app = express();
 const prisma = new PrismaClient();
 app.use(express.json());
 app.use(cors());
+
+
+
+app.use(express.static(path.join(__dirname,'/frontend/dist')));
 
 const referralBody = z.object({
     referrer: z.string().min(1, { message: "Referrer is required" }),
@@ -70,3 +78,8 @@ const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+
+app.get('*',(req,res)=>{
+  res.sendFile(path.join(__dirname,'frontend' ,'dist','index.html'));
+})
