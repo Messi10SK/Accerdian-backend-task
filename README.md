@@ -10,8 +10,7 @@ This repository contains the backend code for the Refer & Earn landing page. The
 - [Running the Server](#running-the-server)
 - [Environment Variables](#environment-variables)
 - [API Endpoints](#api-endpoints)
-- [Database](#database)
-- [License](#license)
+
 
 ## Getting Started
 
@@ -61,3 +60,10 @@ The server should now be running on `http://localhost:PORT`.
 
 Create a `.env` file in the root directory and add the following variables:
 
+## API Endpoints
+
+## API Endpoints
+
+### POST /api/referrals
+
+to Create a new referral.
